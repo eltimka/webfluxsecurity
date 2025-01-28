@@ -22,11 +22,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
 
 
-	implementation "io.awspring.cloud:spring-cloud-aws-starter:$awsstarter"
-	implementation "io.awspring.cloud:spring-cloud-aws-sqs:$awssqs"
-	implementation "io.awspring.cloud:spring-cloud-aws-messaging:$awsmessage"
-	implementation "software.amazon.awssdk:cloud:aws-sdk-java:$awssdk"
-	implementation "software.amazon.awssdk:sqs:$awssqs"
 
 	implementation "io.r2dbc:r2dbc-postgresql:$r2dbcVersion"
 	implementation "org.postgresql:postgresql:$postgreSqlVersion"
