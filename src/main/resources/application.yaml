@@ -1,0 +1,14 @@
+spring:
+cloud:
+  aws:
+    credentials:
+      access-key:
+        region:
+          static: us-east-1
+
+
+sqs:
+  notifications:
+    queue:
+      name:
+        rergion: us-east-1
