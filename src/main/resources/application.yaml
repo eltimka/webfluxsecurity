@@ -1,5 +1,14 @@
 spring:
-cloud:
+  r2dbc:
+    url: r2dbc:pool:postgres://localhost:5432/
+      username: postgres
+        password: postgres
+          flyway:
+            url: jdbc:postgresql://localhost:5432/
+              user: postgres
+                password: postgres
+                locations: classpath:db/migration
+  cloud:
   aws:
     credentials:
       access-key:
