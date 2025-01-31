@@ -13,20 +13,20 @@ import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 @Configuration
 public class AwsConfig {
     @Bean
-    public AWSCredentialsProvider awsCredentialsProvider(@Value("spring.cloud.aws.credentials.access-key") String accessKey,
-                                                         @Value("spring.cloud.aws.credentials.secret-key") String secretKey){
+    public AWSCredentialsProvider awsCredentialsProvider(@Value("${spring.cloud.aws.credentials.access-key}") String accessKey,
+                                                         @Value("${spring.cloud.aws.credentials.secret-key}") String secretKey){
 
         return AWSCredentialsProvider(new BasicAWSCredentials(accessKey,secretKey));
 }
 
     @Bean
-    public AwsCredentialsProvider awsAsyncCredentialsProvider (@Value("spring.cloud.aws.credentials.access-key") String accessKey,
-                                                         @Value("spring.cloud.aws.credentials.secret-key") String secretKey){
+    public AwsCredentialsProvider awsAsyncCredentialsProvider (@Value("${spring.cloud.aws.credentials.access-key}") String accessKey,
+                                                         @Value("${spring.cloud.aws.credentials.secret-key}") String secretKey){
         return StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKey,secretKey));
 
     }
     public AmazonSQSAsync amazonSQSAsync(AWSCredentialsProvider awsCredentialsProvider,
-                                         @Value("sqs.notifications.queue.region") String region) {
+                                         @Value("${sqs.notifications.queue.region}") String region) {
         return AmazonSQSAsyncClientBuilder.standard()
                 .withCredentials(awsCredentialsProvider)
                 .withRegion(region)
