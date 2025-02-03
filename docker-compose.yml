@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  eltimka-awssqs-demo:
+    image: eltimka-awssqs-demo:latest
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      mode: replicated
+      replicas: 3
