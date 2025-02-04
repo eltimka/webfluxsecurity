@@ -1,0 +1,23 @@
+spring:
+  r2dbc:
+    url: r2dbc:pool:postgres://localhost:5432/eltimka-sqs-demo
+      username: postgres
+        password: postgres
+          flyway:
+            url: jdbc:postgresql://localhost:5432/eltimka-sqs-demo
+              user: postgres
+                password: postgres
+                locations: classpath:db/migration
+  cloud:
+  aws:
+    credentials: [PUT_YOUR_ACCESS_KEY]
+      access-key: [PUT_YOUR_SECRET_KEY]
+        region:
+          static: us-east-1
+
+
+sqs:
+  notifications:
+    queue:
+      name: eltimka-sqs-demo.fifo
+        rergion: us-east-1
